@@ -12,9 +12,8 @@ function randomVal() {
     }
 }
 
-function num(min = 16, max = 36) {
-    const rangeArr = [...Array(36).splice(15)]
-    return rangeArr;
+function num(min = 12, max = 36) {
+    return Math.ceil(Math.random() * (max - min) + min);
 }
 
 const fontSizes = [num(), num(), num(), num(), num(), num(), num(), num(), num(), num()];
