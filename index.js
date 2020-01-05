@@ -23,14 +23,16 @@ const names = ["Brian", "Doris", "Shawn", "Thomas", "Mahayla", "Logan", "Shirley
 const p = d3
     .selectAll("p")
     .data(fontSizes).style("font-size", (d, i) => d + "px")
-    .data([...Array(10)]).style("color", d => "hsl(" + Math.random() * 360 + ",100%,50%)").data(names).attr("title", (d) => d).data(names).on("click", (d) => alert(d));
-
+    .data([...Array(10)]).style("color", d => "hsl(" + Math.random() * 360 + ",100%,50%)").data(names).attr("title", (d) => d).data(names).on("click", (d) => {
+        alert(d);
+        console.log(d)
+    });
 
 p.enter().append("p").text((d) => d);
 p.exit().remove();
 
-// const si = setInterval(() => {
-//     clearInterval(si);
+const si = setInterval(() => {
+    clearInterval(si);
 
-//     window.location.reload()
-// }, 100)
+    window.location.reload()
+}, 100)
