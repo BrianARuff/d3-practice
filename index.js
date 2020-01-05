@@ -18,15 +18,19 @@ function num(min = 12, max = 36) {
 
 const fontSizes = [num(), num(), num(), num(), num(), num(), num(), num(), num(), num()];
 
+const names = ["Brian", "Doris", "Shawn", "Thomas", "Mahayla", "Logan", "Shirley", "Allen", "Lewis", "Frankie"];
 
-d3
+const p = d3
     .selectAll("p")
     .data(fontSizes).style("font-size", (d, i) => d + "px")
-    .data([...Array(10)]).style("color", d => "hsl(" + Math.random() * 360 + ",100%,50%)")
-    .data(["Brian", "Doris", "Shawn", "Logan", "Mahayla", "Thomas", "Shirley", "Lewis", "Randolph", "Robert", ]).data(["Brian", "Doris", "Shawn", "Thomas", "Mahayla", "Logan", "Shirley", "Allen", "Lewis", "Frankie"]).attr("title", (d) => d);
+    .data([...Array(10)]).style("color", d => "hsl(" + Math.random() * 360 + ",100%,50%)").data(names).attr("title", (d) => d).data(names).on("click", (d) => alert(d));
 
-const si = setInterval(() => {
-    clearInterval(si);
 
-    window.location.reload()
-}, 100)
+p.enter().append("p").text((d) => d);
+p.exit().remove();
+
+// const si = setInterval(() => {
+//     clearInterval(si);
+
+//     window.location.reload()
+// }, 100)
